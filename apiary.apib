@@ -32,7 +32,7 @@ If you have not done this and would like to use the API, please email api@limoan
 |202 | Accepted. |Successful operation. |
 |204 | No Content. | GET request where content doesn't exist. |
 |400 | Bad request. | |
-|401 | Not Authorized. | Request when API client credentials or customer credentials have not been validated. |
+|401 | Unauthorized. | Request when API client credentials or customer credentials have not been validated. |
 |403 | Forbidden. | Unauthorized requests such as improper OAuth 2.0 scopes or permissions issues. |
 |404 | Not Found. |  Requested resource was not found. |
 |409 | Conflict. | A conflict exists and needs to be resolved before the request can be made. |
@@ -2277,7 +2277,7 @@ The table below describes several reason phrases that can occurs during the Book
 
 ## Rate Lookup [/Rate Lookup]
 
-### Rate Lookup [POST /companies/{company_alias}/rate_lookup?request={request}&company_alias={company_alias}]
+### Rate Lookup [POST /companies/{company_alias}/rate_lookup]
 Allows you to see pricing for your trip requirements by returning a collection of charges.
 + Parameters
     + company_alias: ( )
@@ -2415,7 +2415,7 @@ Allows you to see pricing for your trip requirements by returning a collection o
             { "search_id": 1, "service_type_id": 11, "rental_agreement_id": 22, "results": [ { "id": 123456, "vehicle_type_id": 11, "vehicle_type_name": "SEDAN", "vehicle_type_description": "Some description of vehicle type", "vehicle_type_images": [ "https://test_path/vehicle_image.png", "https://test_path_2/vehicle_image.png" ], "passenger_capacity": 3, "luggage_capacity": 5, "is_handicap_accessible": true, "has_optional_charges": true, "original_total_amount": 33.33, "total_amount": 44.44 }, { "id": 234567, "vehicle_type_id": 12, "vehicle_type_name": "BUS", "vehicle_type_description": "Some description of vehicle type", "vehicle_type_images": [ "https://test_path_3/vehicle_image.png", "https://test_path_4/vehicle_image.png" ], "passenger_capacity": 7, "luggage_capacity": 10, "is_handicap_accessible": true, "has_optional_charges": true, "original_total_amount": 55.555, "total_amount": 66.66 } ] }
 
 
-### Get Rate Details [GET /companies/{company_alias}/rate_lookup/results/{id}?id={id}&company_alias={company_alias}]
+### Get Rate Details [GET /companies/{company_alias}/rate_lookup/results/{id}]
 Returns a detailed (breakdown) list of charges by `search_id` from the previous method.
 + Parameters
     + id: `1` (required, int)
@@ -2441,7 +2441,7 @@ Returns a detailed (breakdown) list of charges by `search_id` from the previous 
 
 ## Quote [/Quote]
 
-### Create Quote [POST /companies/{company_alias}/quotes?request={request}&company_alias={company_alias}]
+### Create Quote [POST /companies/{company_alias}/quotes]
 
 + Parameters
     + company_alias: ( )
@@ -2514,7 +2514,7 @@ Returns a detailed (breakdown) list of charges by `search_id` from the previous 
 
 ## Booking [/Booking]
 
-### Booking [POST /companies/{company_alias}/bookings?request={request}&company_alias={company_alias}]
+### Booking [POST /companies/{company_alias}/bookings]
 Creates a reservation using the supplied booking information and specified rate lookup information from the `search_result_id` parameter returned previously.
 
 + Parameters
@@ -2605,7 +2605,7 @@ Creates a reservation using the supplied booking information and specified rate 
             { "id": 111, "confirmation_number": "12345" }
 
 
-### Update Booking [PUT /companies/{company_alias}/bookings/{id}?id={id}&request={request}&company_alias={company_alias}]
+### Update Booking [PUT /companies/{company_alias}/bookings/{id}]
 Updates a reservation by reservation Id using specified booking information rate lookup information which was previously returned.
 
 
