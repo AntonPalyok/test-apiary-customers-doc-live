@@ -349,12 +349,11 @@ Returns a paged collection of countries.
 
 ##  FBOs [/fbos]
 Fixed-Base Operators are private entities (primarily business or corporate) which operate out of an airport.
-### Get Collection [GET /companies/{company_alias}/resources/fbos?search_for={search_for}&is_active={is_active}&page_index={page_index}&page_size={page_size}]
+### Get Collection [GET /companies/{company_alias}/resources/fbos?search_for={search_for}&page_index={page_index}&page_size={page_size}]
 Returns a paged collection of FBOs.
 
 + Parameters
     + search_for: ( string)
-    + is_active: true ( object)
     + page_index: 1 ( int)
     + page_size: 20 ( int)
     + company_alias: ( )
@@ -384,11 +383,10 @@ Occasions can be used to provide additional event info to the operator about the
 
 Aside from providing additional info for the fulfillment of the booking, this information could provide useful to the operator for reporting purposes. 
 
-### Get Collection [GET /companies/{company_alias}/resources/occasions?is_active={is_active}&page_index={page_index}&page_size={page_size}]
+### Get Collection [GET /companies/{company_alias}/resources/occasions?page_index={page_index}&page_size={page_size}]
 Returns a paged collection of Occasions.
 
 + Parameters
-    + is_active: true ( object)
     + page_index: 1 ( int)
     + page_size: 20 ( int)
     + company_alias: ( )
@@ -413,11 +411,10 @@ Returns a paged collection of Occasions.
 ## Payment Types [/payment_types]
 The available Payment Types (methods) for which a customer may pay for bookings.
 
-### Get Collection [GET /companies/{company_alias}/resources/payment_types?is_active={is_active}&page_index={page_index}&page_size={page_size}]
+### Get Collection [GET /companies/{company_alias}/resources/payment_types?page_index={page_index}&page_size={page_size}]
 Returns a paged collection of Payment Types. 
 
 + Parameters
-    + is_active: true ( object)
     + page_index: 1 ( int)
     + page_size: 20 ( int)
     + company_alias: ( )
@@ -529,11 +526,10 @@ This is generally different than a rental agreement and is usually required by a
 ## Referral Sources [/referral_sources]
 Referral Sources are used to specify how a user learned of the operator's services. Example Referral Sources might be "television commercial" or "internet search."
 
-### Get Collection [GET /companies/{company_alias}/resources/referral_sources?is_active={is_active}&page_index={page_index}&page_size={page_size}]
+### Get Collection [GET /companies/{company_alias}/resources/referral_sources?page_index={page_index}&page_size={page_size}]
 Returns a collection of Referral Sources.
 
 + Parameters
-    + is_active: true ( object)
     + page_index: 1 ( int)
     + page_size: 20 ( int)
     + company_alias: ( )
@@ -993,13 +989,12 @@ Returns the Billing Contact by Id.
             { "id": 1, "email": "test@test.com", "number": "1234567890", "company": "Limo Anywhere", "billing_contact": { "account_id": 1, "account_number": "12345", "first_name": "Alex", "last_name": "Jonah", "company": "Limo Anywhere", "phone": "+1-234-1111111", "email": "test_1@test.com" }, "is_billing_contact": true, "is_booking_contact": true, "is_passenger": true, "is_active": true, "prefix": "Mr.", "first_name": "John", "last_name": "Smith", "position": "Software developer", "department": "IT department", "address": { "name": "Pick Up Address", "phone": "+1-234-1111110", "country_code": "US", "state_code": "NY", "postal_code": "11111", "county": "Delaware", "city": "New York", "address_line1": "123 Main Street", "address_line2": "123 Second Street", "latitude": 0.0, "longitude": 0.0 }, "home_phone": "+1-234-1111112", "office_phone": "+1-234-1111111", "cellular_phone1": "+1-234-1111113", "cellular_phone2": "+1-234-1111114", "cellular_phone3": "+1-234-1111115", "fax1": "+1-234-1111116", "fax2": "+1-234-1111117", "emails": [ { "email": "test_1@test.com", "type": [ "confirmation", "automatic_notification", "payment_receipt", "invoice", "other" ] }, { "email": "test_2@test.com", "type": [ "confirmation", "automatic_notification", "payment_receipt", "invoice", "other" ] } ], "default_payment_type_id": 1, "default_credit_card_id": 1 }
 
 
-### Get Collection [GET /customers/self/billing_contacts?is_active={is_active}&search_for={search_for}&page_index={page_index}&page_size={page_size}]
+### Get Collection [GET /customers/self/billing_contacts?search_for={search_for}&page_index={page_index}&page_size={page_size}]
 Returns a paged collection of Billing Contacts.
 
 Customer must have 'Booking Contact' designation in order to be associated with multiple Billing Contacts.
 
 + Parameters
-    + is_active: true ( object)
     + search_in: ( object)
     + search_for: ( string)
     + sort_by: ( object)
@@ -1025,11 +1020,10 @@ Customer must have 'Booking Contact' designation in order to be associated with 
             { "total_count": 1, "items": [ { "id": 1, "email": "test@test.com", "number": "1234567890", "company": "Limo Anywhere", "billing_contact": { "account_id": 1, "account_number": "12345", "first_name": "Alex", "last_name": "Jonah", "company": "Limo Anywhere", "phone": "+1-234-1111111", "email": "test_1@test.com" }, "is_billing_contact": true, "is_booking_contact": true, "is_passenger": true, "is_active": true, "prefix": "Mr.", "first_name": "John", "last_name": "Smith", "position": "Software developer", "department": "IT department", "address": { "name": "Pick Up Address", "phone": "+1-234-1111110", "country_code": "US", "state_code": "NY", "postal_code": "11111", "county": "Delaware", "city": "New York", "address_line1": "123 Main Street", "address_line2": "123 Second Street", "latitude": 0.0, "longitude": 0.0 }, "home_phone": "+1-234-1111112", "office_phone": "+1-234-1111111", "cellular_phone1": "+1-234-1111113", "cellular_phone2": "+1-234-1111114", "cellular_phone3": "+1-234-1111115", "fax1": "+1-234-1111116", "fax2": "+1-234-1111117", "emails": [ { "email": "test_1@test.com", "type": [ "confirmation", "automatic_notification", "payment_receipt", "invoice", "other" ] }, { "email": "test_2@test.com", "type": [ "confirmation", "automatic_notification", "payment_receipt", "invoice", "other" ] } ], "default_payment_type_id": 1, "default_credit_card_id": 1 } ] }
 
 
-### Get Collection [GET /customers/self/booking_contacts?is_active={is_active}&search_for={search_for}&page_index={page_index}&page_size={page_size}]
+### Get Collection [GET /customers/self/booking_contacts?search_for={search_for}&page_index={page_index}&page_size={page_size}]
 Returns a paged collection of Booking Contacts.
 
 + Parameters
-    + is_active: true ( object)
     + search_in: ( object)
     + search_for: ( string)
     + sort_by: ( object)
@@ -1391,11 +1385,10 @@ Provides management operations of customer's managed contacts.
 
 As an example, a Billing Contact might manage several Passengers.
 
-### Get Collection [GET /customers/self/managed_contacts?is_active={is_active}&is_billing_contact={is_billing_contact}&is_booking_contact={is_booking_contact}&is_passenger={is_passenger}&search_for={search_for}&page_index={page_index}&page_size={page_size}]
+### Get Collection [GET /customers/self/managed_contacts?is_billing_contact={is_billing_contact}&is_booking_contact={is_booking_contact}&is_passenger={is_passenger}&search_for={search_for}&page_index={page_index}&page_size={page_size}]
 Returns a paged collection of the customer's managed contacts.
 
 + Parameters
-    + is_active: true ( object)
     + is_billing_contact: ( object)
     + is_booking_contact: ( object)
     + is_passenger: ( object)
@@ -1577,11 +1570,10 @@ Delete a managed contact.
 ## Customer Passenger [/customer-self-passenger]
 Provides read operations for customer's Passenger(s).
 
-### Get Collection [GET /customers/self/passengers?is_active={is_active}&search_for={search_for}&page_index={page_index}&page_size={page_size}]
+### Get Collection [GET /customers/self/passengers?search_for={search_for}&page_index={page_index}&page_size={page_size}]
 Returns a paged collection of passengers.
 
 + Parameters
-    + is_active: true ( object)
     + search_in: ( object)
     + search_for: ( string)
     + sort_by: ( object)
