@@ -68,7 +68,7 @@ Once you have completed the above, choose a sub-section to follow:
 
 
 ## Group Authentication
-The API uses the <a href="https://tools.ietf.org/html/rfc6749#appendix-B"> OAuth 2.0 </a> protocol for simple, but effective authentication and authorization.
+The API uses the <a href="https://tools.ietf.org/html/rfc6749"> OAuth 2.0 </a> protocol for simple, but effective authentication and authorization.
 All API endpoints require an OAuth access token, thus we have exposed a service that will provide the user with an OAuth 2 Access token.
 This token should be provided in the header in all requests.
 
@@ -159,7 +159,7 @@ We support 2 ways of obtaining authorization:
 
 
 ## Refresh Access Token [/refresh]
-Your access token will expire after a period of time and must be refreshed. Time until token expiration is provided in the `expired_in` parameter when receiving your token. <b>If you receive a 403 error, you may need to refresh your token.</b>
+Your access token will expire after a period of time and must be refreshed. Time until token expiration is provided in the `expired_in` parameter when receiving your token. <b>If you receive a 401 error, you may need to refresh your token.</b>
 
 
 ### Refresh [POST /oauth2/token]
@@ -651,7 +651,7 @@ Returns Company System preferences.
 
 UI Preferences specify formats for resources to be displayed to the end user, such as dates and times. Developers should use these preferences as a guide when building a customer facing application.
 
-### Get by Company Alias[GET /companies/{company_alias}/preferences/ui]
+### Get [GET /companies/{company_alias}/preferences/ui]
 Returns operator's UI preferences.
 
 + Parameters
@@ -1391,7 +1391,7 @@ Provides management operations of customer's managed contacts.
 
 As an example, a Billing Contact might manage several Passengers.
 
-### Get Collections [GET /customers/self/managed_contacts?is_active={is_active}&is_billing_contact={is_billing_contact}&is_booking_contact={is_booking_contact}&is_passenger={is_passenger}&search_for={search_for}&page_index={page_index}&page_size={page_size}]
+### Get Collection [GET /customers/self/managed_contacts?is_active={is_active}&is_billing_contact={is_billing_contact}&is_booking_contact={is_booking_contact}&is_passenger={is_passenger}&search_for={search_for}&page_index={page_index}&page_size={page_size}]
 Returns a paged collection of the customer's managed contacts.
 
 + Parameters
