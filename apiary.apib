@@ -349,7 +349,7 @@ Returns a paged collection of countries.
 
 ##  FBOs [/fbos]
 Fixed-Base Operators are private entities (primarily business or corporate) which operate out of an airport.
-### Get Collection [GET /companies/{company_alias}/resources/fbos?search_for={search_for}&is_active={is_active}&page_index={page_index}&page_size={page_size}&company_alias={company_alias}]
+### Get Collection [GET /companies/{company_alias}/resources/fbos?search_for={search_for}&is_active={is_active}&page_index={page_index}&page_size={page_size}]
 Returns a paged collection of FBOs.
 
 + Parameters
@@ -384,7 +384,7 @@ Occasions can be used to provide additional event info to the operator about the
 
 Aside from providing additional info for the fulfillment of the booking, this information could provide useful to the operator for reporting purposes. 
 
-### Get Collection [GET /companies/{company_alias}/resources/occasions?is_active={is_active}&page_index={page_index}&page_size={page_size}&company_alias={company_alias}]
+### Get Collection [GET /companies/{company_alias}/resources/occasions?is_active={is_active}&page_index={page_index}&page_size={page_size}]
 Returns a paged collection of Occasions.
 
 + Parameters
@@ -413,7 +413,7 @@ Returns a paged collection of Occasions.
 ## Payment Types [/payment_types]
 The available Payment Types (methods) for which a customer may pay for bookings.
 
-### Get Collection [GET /companies/{company_alias}/resources/payment_types?is_active={is_active}&page_index={page_index}&page_size={page_size}&company_alias={company_alias}]
+### Get Collection [GET /companies/{company_alias}/resources/payment_types?is_active={is_active}&page_index={page_index}&page_size={page_size}]
 Returns a paged collection of Payment Types. 
 
 + Parameters
@@ -444,7 +444,7 @@ Returns a paged collection of Payment Types.
 
 ## POIs [/pois]
 Operator-defined Points of Interest. Example POIs might be "Sydney Opera House" or "Yankee Stadium."
-### Get Collection [GET /companies/{company_alias}/resources/pois/types?search_for={search_for}&page_index={page_index}&page_size={page_size}&company_alias={company_alias}]
+### Get Collection [GET /companies/{company_alias}/resources/pois/types?search_for={search_for}&page_index={page_index}&page_size={page_size}]
 Returns a paged collection of POIs.
 
 + Parameters
@@ -474,7 +474,7 @@ Returns a paged collection of POIs.
 ## POI Types [/pois/types]
 POI Types categorize Points of Interest. Examples include "Hotels", "Restaurants", and "Sporting Arenas."
 
-### Get Collection [GET /companies/{company_alias}/resources/pois/types?search_for={search_for}&page_index={page_index}&page_size={page_size}&company_alias={company_alias}]
+### Get Collection [GET /companies/{company_alias}/resources/pois/types?search_for={search_for}&page_index={page_index}&page_size={page_size}]
 Returns a paged collection of POI Types.
 
 + Parameters
@@ -529,7 +529,7 @@ This is generally different than a rental agreement and is usually required by a
 ## Referral Sources [/referral_sources]
 Referral Sources are used to specify how a user learned of the operator's services. Example Referral Sources might be "television commercial" or "internet search."
 
-### Get Collection [GET /companies/{company_alias}/resources/referral_sources?is_active={is_active}&page_index={page_index}&page_size={page_size}&company_alias={company_alias}]
+### Get Collection [GET /companies/{company_alias}/resources/referral_sources?is_active={is_active}&page_index={page_index}&page_size={page_size}]
 Returns a collection of Referral Sources.
 
 + Parameters
@@ -558,7 +558,7 @@ Returns a collection of Referral Sources.
 
 ## Rental Agreements [/rental_agreements]
 
-### Get By Id [GET /companies/{company_alias}/resources/rental_agreements/{id}?id={id}&company_alias={company_alias}]
+### Get By Id [GET /companies/{company_alias}/resources/rental_agreements/{id}?id={id}]
 
 + Parameters
     + id: `1` (required, int)
@@ -583,7 +583,7 @@ Returns a collection of Referral Sources.
 
 
 ## Seaports [/seaports]
-### Get Collection [GET /companies/{company_alias}/resources/seaports?search_for={search_for}&page_index={page_index}&page_size={page_size}&company_alias={company_alias}]
+### Get Collection [GET /companies/{company_alias}/resources/seaports?search_for={search_for}&page_index={page_index}&page_size={page_size}]
 Returns a paged collection of Seaports.
 
 + Parameters
@@ -644,7 +644,7 @@ Returns Company System preferences.
 
     + Body
 
-            { "service_type_mapping": { "default_hourly_service_type_id": 1, "default_airport_departure_service_type_id": 1, "default_airport_arrival_service_type_id": 1, "default_point_to_point_service_type_id": 1 }, "ores": { "is_ores_enabled": true, "is_credit_card_required": true, "is_billing_address_required": true, "max_authentication_attempt_count": 1, "default_payment_gateway_id": 1, "payment_transaction_type": "AuthorizationAndCapture", "default_rental_agreement_id": 1, "allowed_payment_types": [ 1, 2 ], "is_rate_calculation_enabled": true, "is_reservation_auto_approve_enabled": true, "is_create_account_allowed": true, "is_create_quote_allowed": true, "is_create_reservation_allowed": true, "create_reservation_allowed_up_to": 1, "is_cancel_and_modify_reservation_allowed": true, "cancel_and_modify_reservation_allowed_up_to": 1, "is_reservation_cut_off_enabled": true, "reservation_cut_off_for_customer_begins_at": "00:00:00.1234567", "reservation_cut_off_for_customer_ends_at": "00:00:00.1234567" } }
+            { "service_type_mapping": { "default_hourly_service_type_id": 1, "default_airport_departure_service_type_id": 1, "default_airport_arrival_service_type_id": 1, "default_point_to_point_service_type_id": 1 }, "ores": { "is_ores_enabled": true, "is_credit_card_required": true, "is_billing_address_required": true, "max_authentication_attempt_count": 1, "default_payment_gateway_id": 1, "payment_transaction_type": "authorization_and_capture", "default_rental_agreement_id": 1, "allowed_payment_types": [ 1, 2 ], "is_rate_calculation_enabled": true, "is_reservation_auto_approve_enabled": true, "is_create_account_allowed": true, "is_create_quote_allowed": true, "is_create_reservation_allowed": true, "create_reservation_allowed_up_to": 1, "is_cancel_and_modify_reservation_allowed": true, "cancel_and_modify_reservation_allowed_up_to": 1, "is_reservation_cut_off_enabled": true, "reservation_cut_off_for_customer_begins_at": "00:00:00.1234567", "reservation_cut_off_for_customer_ends_at": "00:00:00.1234567" } }
 
 
 ## UI Preferences [/ui-preferences]
