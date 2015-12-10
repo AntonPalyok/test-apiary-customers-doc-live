@@ -1385,10 +1385,11 @@ Provides management operations of customer's managed contacts.
 
 As an example, a Billing Contact might manage several Passengers.
 
-### Get Collection [GET /customers/self/managed_contacts?is_billing_contact={is_billing_contact}&is_booking_contact={is_booking_contact}&is_passenger={is_passenger}&search_for={search_for}&page_index={page_index}&page_size={page_size}]
+### Get Collection [GET /customers/self/managed_contacts?is_active={is_active}&is_billing_contact={is_billing_contact}&is_booking_contact={is_booking_contact}&is_passenger={is_passenger}&search_for={search_for}&page_index={page_index}&page_size={page_size}]
 Returns a paged collection of the customer's managed contacts.
 
 + Parameters
+    + is_active: true ( object)
     + is_billing_contact: ( object)
     + is_booking_contact: ( object)
     + is_passenger: ( object)
