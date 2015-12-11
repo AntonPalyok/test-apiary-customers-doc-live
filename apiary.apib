@@ -406,7 +406,7 @@ Returns a paged collection of Occasions.
 
     + Body
 
-            { "total_count": 1, "items": [ { "description": "sample string 1", "id": 2, "name": "sample string 3" }, { "description": "sample string 1", "id": 2, "name": "sample string 3" } ] }
+            { "total_count": 1, "items": [ { "id": 2, "name": "sample string 3" }, { "id": 2, "name": "sample string 3" } ] }
 
 ## Payment Types [/payment_types]
 The available Payment Types (methods) for which a customer may pay for bookings.
@@ -434,7 +434,7 @@ Returns a paged collection of Payment Types.
 
     + Body
 
-            { "total_count": 1, "items": [ { "id": 1, "code": "sample string 2", "name": "sample string 3", "type": "other" }, { "id": 1, "code": "sample string 2", "name": "sample string 3", "type": "other" } ] }
+            { "total_count": 1, "items": [ { "id": 1, "name": "sample string 3", "type": "other" }, { "id": 1, "name": "sample string 3", "type": "other" } ] }
 
 
 
@@ -603,7 +603,7 @@ Returns a paged collection of Seaports.
 
     + Body
 
-            { "total_count": 1, "items": [ { "id": 1, "name": "sample string 2", "code": "sample string 3", "state": 1, "latitude": 4.1, "longitude": 5.1 }, { "id": 1, "name": "sample string 2", "code": "sample string 3", "state": 1, "latitude": 4.1, "longitude": 5.1 } ] }
+            { "total_count": 1, "items": [ { "id": 1, "name": "sample string 2", "code": "sample string 3", "latitude": 4.1, "longitude": 5.1 }, { "id": 1, "name": "sample string 2", "code": "sample string 3", "latitude": 4.1, "longitude": 5.1 } ] }
 
 
 ## Service Types [/ores-service-types]
@@ -1322,11 +1322,10 @@ Delete a credit card.
 ## Customer Invoice [/customer-self-invoice]
 Provides viewing of customer's Invoices.
 
-### Get Collection [GET /customers/self/invoices?bill_to={bill_to}&from={from}&to={to}&confirmation_number={confirmation_number}&min_total_amount={min_total_amount}&max_total_amount={max_total_amount}&status={status}&page_index={page_index}&page_size={page_size}&sort_by={sort_by}&sort_order={sort_order}]
+### Get Collection [GET /customers/self/invoices?from={from}&to={to}&confirmation_number={confirmation_number}&min_total_amount={min_total_amount}&max_total_amount={max_total_amount}&status={status}&page_index={page_index}&page_size={page_size}&sort_by={sort_by}&sort_order={sort_order}]
 Returns a paged collection of Invoices.
 
 + Parameters
-    + bill_to: ( string)
     + from: ( object)
     + to: ( object)
     + confirmation_number: ( object)
@@ -1353,7 +1352,7 @@ Returns a paged collection of Invoices.
 
     + Body
 
-            { "total_count": 1, "items": [ { "id": 1, "company_alias_id": 1, "customer_id": 2, "status": "unpaid", "is_finalized": true, "confirmation_prefix": "sample string 4", "confirmation_number": "sample string 5", "confirmation_suffix": "sample string 6", "client_details_line1": "sample string 7", "client_details_line2": "sample string 8", "client_details_line3": "sample string 9", "client_details_line4": "sample string 10", "reference_number": "sample string 11", "terms": "due_upon_receipt", "message": "sample string 12", "notes": "sample string 13", "discount_type": "fixed", "discount_amount": 14.0, "discount_total_amount": 15.0, "misc_fee_title": "sample string 16", "misc_fee_type": "fixed", "misc_fee_amount": 17.0, "misc_fee_total_amount": 18.0, "currency_code": "sample string 19", "total_amount": 20.0, "receipted_amount": 21.0, "authorized_amount": 22.0, "created_at": "2015-10-30T17:28:05+02:00", "created_by": "sample string 24", "created_from": "unknown" }, { "id": 1, "company_alias_id": 1, "customer_id": 2, "status": "unpaid", "is_finalized": true, "confirmation_prefix": "sample string 4", "confirmation_number": "sample string 5", "confirmation_suffix": "sample string 6", "client_details_line1": "sample string 7", "client_details_line2": "sample string 8", "client_details_line3": "sample string 9", "client_details_line4": "sample string 10", "reference_number": "sample string 11", "terms": "due_upon_receipt", "message": "sample string 12", "notes": "sample string 13", "discount_type": "fixed", "discount_amount": 14.0, "discount_total_amount": 15.0, "misc_fee_title": "sample string 16", "misc_fee_type": "fixed", "misc_fee_amount": 17.0, "misc_fee_total_amount": 18.0, "currency_code": "sample string 19", "total_amount": 20.0, "receipted_amount": 21.0, "authorized_amount": 22.0, "created_at": "2015-10-30T17:28:05+02:00", "created_by": "sample string 24", "created_from": "unknown" } ] }
+            { "total_count": 1, "items": [ { "id": 1, "status": "unpaid", "is_finalized": true, "confirmation_prefix": "sample string 4", "confirmation_number": "sample string 5", "confirmation_suffix": "sample string 6", "client_details_line1": "sample string 7", "client_details_line2": "sample string 8", "client_details_line3": "sample string 9", "client_details_line4": "sample string 10", "reference_number": "sample string 11", "terms": "due_upon_receipt", "message": "sample string 12", "discount_type": "fixed", "discount_amount": 14.0, "discount_total_amount": 15.0, "misc_fee_title": "sample string 16", "misc_fee_type": "fixed", "misc_fee_amount": 17.0, "misc_fee_total_amount": 18.0, "currency_code": "sample string 19", "total_amount": 20.0, "receipted_amount": 21.0, "authorized_amount": 22.0, "created_at": "2015-10-30T17:28:05+02:00" }, { "id": 1, "status": "unpaid", "is_finalized": true, "confirmation_prefix": "sample string 4", "confirmation_number": "sample string 5", "confirmation_suffix": "sample string 6", "client_details_line1": "sample string 7", "client_details_line2": "sample string 8", "client_details_line3": "sample string 9", "client_details_line4": "sample string 10", "reference_number": "sample string 11", "terms": "due_upon_receipt", "message": "sample string 12", "discount_type": "fixed", "discount_amount": 14.0, "discount_total_amount": 15.0, "misc_fee_title": "sample string 16", "misc_fee_type": "fixed", "misc_fee_amount": 17.0, "misc_fee_total_amount": 18.0, "currency_code": "sample string 19", "total_amount": 20.0, "receipted_amount": 21.0, "authorized_amount": 22.0, "created_at": "2015-10-30T17:28:05+02:00" } ] }
 
 
 
@@ -1378,7 +1377,7 @@ Returns an Invoice by Id.
 
     + Body
 
-            { "id": 1, "company_alias_id": 1, "customer_id": 2, "status": "unpaid", "is_finalized": true, "confirmation_prefix": "sample string 4", "confirmation_number": "sample string 5", "confirmation_suffix": "sample string 6", "client_details_line1": "sample string 7", "client_details_line2": "sample string 8", "client_details_line3": "sample string 9", "client_details_line4": "sample string 10", "reference_number": "sample string 11", "terms": "due_upon_receipt", "message": "sample string 12", "notes": "sample string 13", "discount_type": "fixed", "discount_amount": 14.0, "discount_total_amount": 15.0, "misc_fee_title": "sample string 16", "misc_fee_type": "fixed", "misc_fee_amount": 17.0, "misc_fee_total_amount": 18.0, "currency_code": "sample string 19", "total_amount": 20.0, "receipted_amount": 21.0, "authorized_amount": 22.0, "created_at": "2015-10-30T17:28:05+02:00", "created_by": "sample string 24", "created_from": "unknown" }
+            { "id": 1, "status": "unpaid", "is_finalized": true, "confirmation_prefix": "sample string 4", "confirmation_number": "sample string 5", "confirmation_suffix": "sample string 6", "client_details_line1": "sample string 7", "client_details_line2": "sample string 8", "client_details_line3": "sample string 9", "client_details_line4": "sample string 10", "reference_number": "sample string 11", "terms": "due_upon_receipt", "message": "sample string 12", "discount_type": "fixed", "discount_amount": 14.0, "discount_total_amount": 15.0, "misc_fee_title": "sample string 16", "misc_fee_type": "fixed", "misc_fee_amount": 17.0, "misc_fee_total_amount": 18.0, "currency_code": "sample string 19", "total_amount": 20.0, "receipted_amount": 21.0, "authorized_amount": 22.0, "created_at": "2015-10-30T17:28:05+02:00" }
 
 ## Customer Managed Contacts [/customer-self-managed-contacts]
 Provides management operations of customer's managed contacts.
