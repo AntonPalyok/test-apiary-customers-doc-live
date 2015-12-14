@@ -356,7 +356,7 @@ Returns a paged collection of FBOs.
     + search_for: (optional, string)
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
-    + company_alias: ( )
+    + company_alias: (required, string)
 
 + Request
 
@@ -389,7 +389,7 @@ Returns a paged collection of Occasions.
 + Parameters
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
-    + company_alias: ( )
+    + company_alias: (required, string)
 
 + Request
 
@@ -417,7 +417,7 @@ Returns a paged collection of Payment Types.
 + Parameters
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
-    + company_alias: ( )
+    + company_alias: (required, string)
 
 + Request
 
@@ -448,7 +448,7 @@ Returns a paged collection of POIs.
     + search_for: (optional, string)
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
-    + company_alias: ( )
+    + company_alias: (required, string)
 
 + Request
 
@@ -478,7 +478,7 @@ Returns a paged collection of POI Types.
     + search_for: (optional, string)
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
-    + company_alias: ( )
+    + company_alias: (required, string)
 
 + Request
 
@@ -504,7 +504,7 @@ This is generally different than a rental agreement and is usually required by a
 ### Get Privacy Policy [GET /companies/{company_alias}/resources/ores/privacy_policy]
 
 + Parameters
-    + company_alias: ( )
+    + company_alias: (required, string)
 
 + Request
 
@@ -532,7 +532,7 @@ Returns a collection of Referral Sources.
 + Parameters
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
-    + company_alias: ( )
+    + company_alias: (required, string)
 
 + Request
 
@@ -558,7 +558,7 @@ Returns a collection of Referral Sources.
 
 + Parameters
     + id: `1` (required, int)
-    + company_alias: ( )
+    + company_alias: (required, string)
 
 + Request
 
@@ -586,7 +586,7 @@ Returns a paged collection of Seaports.
     + search_for: (optional, string)
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
-    + company_alias: ( )
+    + company_alias: (required, string)
 
 + Request
 
@@ -623,7 +623,7 @@ It is recommended additional validation be done on the client side to avoid rece
 Returns Company System preferences.
 
 + Parameters
-    + company_alias: ( )
+    + company_alias: (required, string)
 
 + Request
 
@@ -651,7 +651,7 @@ UI Preferences specify formats for resources to be displayed to the end user, su
 Returns operator's UI preferences.
 
 + Parameters
-    + company_alias: ( )
+    + company_alias: (required, string)
 
 + Request
 
@@ -811,7 +811,7 @@ Returns a paged collection of the customer's Stored Addresses.
     + search_for: (optional, string)
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
-    + type: (optional, object)
+    + type: (optional, string)
 
 + Request
 
@@ -995,10 +995,10 @@ Returns a paged collection of Billing Contacts.
 Customer must have 'Booking Contact' designation in order to be associated with multiple Billing Contacts.
 
 + Parameters
-    + search_in: (optional, object)
+    + search_in: (optional, string)
     + search_for: (optional, string)
-    + sort_by: (optional, object)
-    + sort_order: (optional, object)
+    + sort_by: (optional, string)
+    + sort_order: (optional, string)
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
 
@@ -1024,12 +1024,12 @@ Customer must have 'Booking Contact' designation in order to be associated with 
 Returns a paged collection of Booking Contacts.
 
 + Parameters
-    + search_in: ( object)
-    + search_for: ( string)
-    + sort_by: ( object)
-    + sort_order: ( object)
-    + page_index: 1 ( int)
-    + page_size: 20 ( int)
+    + search_in: (optional, string)
+    + search_for: (optional, string)
+    + sort_by: (optional, string)
+    + sort_order: (optional, string)
+    + page_index: 1 (optional, int)
+    + page_size: 20 (optional, int)
 
 + Request
 
@@ -1326,12 +1326,12 @@ Provides viewing of customer's Invoices.
 Returns a paged collection of Invoices.
 
 + Parameters
-    + from: (optional, object)
-    + to: (optional, object)
-    + confirmation_number: (optional, object)
-    + min_total_amount: (optional, object)
-    + max_total_amount: (optional, object)
-    + status: (optional, object)
+    + from: (optional, string)
+    + to: (optional, string)
+    + confirmation_number: (optional, string)
+    + min_total_amount: (optional, string)
+    + max_total_amount: (optional, string)
+    + status: (optional, string)
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
     + sort_by: confirmation_number (optional, string)
@@ -1388,14 +1388,14 @@ As an example, a Billing Contact might manage several Passengers.
 Returns a paged collection of the customer's managed contacts.
 
 + Parameters
-    + is_active: true (optional, object)
-    + is_billing_contact: (optional, object)
-    + is_booking_contact: (optional, object)
-    + is_passenger: (optional, object)
-    + search_in: (optional, object)
+    + is_active: true (optional, boolean)
+    + is_billing_contact: (optional, boolean)
+    + is_booking_contact: (optional, boolean)
+    + is_passenger: (optional, boolean)
+    + search_in: (optional, string)
     + search_for: (optional, string)
-    + sort_by: (optional, object)
-    + sort_order: (optional, object)
+    + sort_by: (optional, string)
+    + sort_order: (optional, string)
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
 
@@ -1574,10 +1574,10 @@ Provides read operations for customer's Passenger(s).
 Returns a paged collection of passengers.
 
 + Parameters
-    + search_in: (optional, object)
+    + search_in: (optional, string)
     + search_for: (optional, string)
-    + sort_by: (optional, object)
-    + sort_order: (optional, object)
+    + sort_by: (optional, string)
+    + sort_order: (optional, string)
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
 
@@ -1630,15 +1630,15 @@ Provides management operations of customer's reservations.
 Returns a collection of customer's reservations.
 
 + Parameters
-    + from: (optional, object)
-    + to: (optional, object)
-    + search_in: (optional, object)
+    + from: (optional, string)
+    + to: (optional, string)
+    + search_in: (optional, string)
     + search_for: (optional, string)
-    + passenger_id: (optional, object)
-    + is_paid: (optional, object)
-    + invoice_id: (optional, object)
-    + sort_by: (optional, object)
-    + sort_order: (optional, object)
+    + passenger_id: (optional, int)
+    + is_paid: (optional, boolean)
+    + invoice_id: (optional, int)
+    + sort_by: (optional, string)
+    + sort_order: (optional, string)
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
 
@@ -1663,14 +1663,14 @@ Returns a collection of customer's reservations.
 ### Get 'Upcoming' Collection [GET /customers/self/reservations/upcoming?from={from}&to={to}&search_for={search_for}&passenger_id={passenger_id}&is_paid={is_paid}&page_index={page_index}&page_size={page_size}]
 Returns a collection of customer's upcoming reservations.
 + Parameters
-    + from: (optional, object)
-    + to: (optional, object)
-    + search_in: (optional, object)
+    + from: (optional, string)
+    + to: (optional, string)
+    + search_in: (optional, string)
     + search_for: (optional, string)
-    + passenger_id: (optional, object)
-    + is_paid: (optional, object)
-    + sort_by: (optional, object)
-    + sort_order: (optional, object)
+    + passenger_id: (optional, int)
+    + is_paid: (optional, boolean)
+    + sort_by: (optional, string)
+    + sort_order: (optional, string)
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
 
@@ -1695,14 +1695,14 @@ Returns a collection of customer's upcoming reservations.
 ### Get 'Completed' Collection [GET /customers/self/reservations/completed?from={from}&to={to}&search_for={search_for}&passenger_id={passenger_id}&is_paid={is_paid}&page_index={page_index}&page_size={page_size}]
 Returns a collection of customer's completed reservations.
 + Parameters
-    + from: (optional, object)
-    + to: (optional, object)
-    + search_in: (optional, object)
+    + from: (optional, string)
+    + to: (optional, string)
+    + search_in: (optional, string)
     + search_for: (optional, string)
-    + passenger_id: (optional, object)
-    + is_paid: (optional, object)
-    + sort_by: (optional, object)
-    + sort_order: (optional, object)
+    + passenger_id: (optional, int)
+    + is_paid: (optional, boolean)
+    + sort_by: (optional, string)
+    + sort_order: (optional, string)
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
 
@@ -1727,14 +1727,14 @@ Returns a collection of customer's completed reservations.
 ### Get 'In Progress' Collection [GET /customers/self/reservations/in_progress?from={from}&to={to}&search_for={search_for}&passenger_id={passenger_id}&is_paid={is_paid}&page_index={page_index}&page_size={page_size}]
 Returns a collection a customer's in-progress reservations.
 + Parameters
-    + from: (optional, object)
-    + to: (optional, object)
-    + search_in: (optional, object)
+    + from: (optional, string)
+    + to: (optional, string)
+    + search_in: (optional, string)
     + search_for: (optional, string)
-    + passenger_id: (optional, object)
-    + is_paid: (optional, object)
-    + sort_by: (optional, object)
-    + sort_order: (optional, object)
+    + passenger_id: (optional, int)
+    + is_paid: (optional, boolean)
+    + sort_by: (optional, string)
+    + sort_order: (optional, string)
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
 
@@ -1810,7 +1810,7 @@ Returns a collection of available triggers for reservation by specified Id.
 
 + Parameters
     + id: `1` (required, int)
-    + include_statuses: (optional, object)
+    + include_statuses: (optional, string)
 
 + Request
 
@@ -1876,8 +1876,8 @@ Returns customer's usage statistics.
 ### Get [GET /customers/self/statistics/usage?from={from}&to={to}&count={count}]
 
 + Parameters
-    + from: (optional, object)
-    + to: (optional, object)
+    + from: (optional, string)
+    + to: (optional, string)
     + count: 20 (optional, int)
 
 + Request
@@ -2272,7 +2272,7 @@ The table below describes several reason phrases that can occurs during the Book
 ### Rate Lookup [POST /companies/{company_alias}/rate_lookup]
 Allows you to see pricing for your trip requirements by returning a collection of charges.
 + Parameters
-    + company_alias: ( )
+    + company_alias: (required, string)
 
 + Request
 
@@ -2411,7 +2411,7 @@ Allows you to see pricing for your trip requirements by returning a collection o
 Returns a detailed (breakdown) list of charges by `search_id` from the previous method.
 + Parameters
     + id: `1` (required, int)
-    + company_alias: ( )
+    + company_alias: (required, string)
 
 + Request
 
@@ -2436,7 +2436,7 @@ Returns a detailed (breakdown) list of charges by `search_id` from the previous 
 ### Create Quote [POST /companies/{company_alias}/quotes]
 
 + Parameters
-    + company_alias: ( )
+    + company_alias: (required, string)
 
 + Request
 
@@ -2510,7 +2510,7 @@ Returns a detailed (breakdown) list of charges by `search_id` from the previous 
 Creates a reservation using the supplied booking information and specified rate lookup information from the `search_result_id` parameter returned previously.
 
 + Parameters
-    + company_alias: ( )
+    + company_alias: (required, string)
 
 + Request
 
@@ -2603,7 +2603,7 @@ Updates a reservation by reservation Id using specified booking information rate
 
 + Parameters
     + id: `1` (required, int)
-    + company_alias: ( )
+    + company_alias: (required, string)
 
 + Request
 
