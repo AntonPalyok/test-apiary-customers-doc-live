@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: https://api.mylimobiz.com/
+HOST: https://sandbox-api.mylimobiz.com/
 
 # Customer API
 <script async="" src="//www.google-analytics.com/analytics.js"></script>
@@ -142,7 +142,7 @@ We support 2 ways of obtaining authorization:
                 "client_id": "la_customer_test",
                 "client_secret": "lcfLYzj7RaUgmRp8sVngt2fpD5GaBJ19Ptt2MrNSlF57GI5kAR",
                 "company_alias": "test_alias",
-                "username": "admin",
+                "username": "passenger@test.com",
                 "password": "password"
             }
 
@@ -214,7 +214,7 @@ The tables below describe all possible request/response parameters:
 |------------------|------------------------------------------------------------|
 | access_token | Access Token |
 | token_type | Token type (Always `bearer`) |
-| expires_in | Expiration time of Access token (15 min after getting) |
+| expires_in | Expiration time of Access token (in seconds) |
 | refresh_token | Refresh Token |
 
 
