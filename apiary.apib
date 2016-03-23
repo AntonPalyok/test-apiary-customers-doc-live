@@ -58,7 +58,7 @@ Once you have completed the above, choose a sub-section to follow:
 <b> Create a Quote</b>
 
 1. Call the <a href="/#reference/booking/rate-lookup/rate-lookup">Rate Lookup</a> method to get the pricing for your trip requirements. Choose the optimal pricing and hold the `Id` of this rate from the `results` array.
-2. Use the <a href="/#reference/booking/rate-lookup/create-quote">Create Quote</a> method. In the `search_id` parameter, use the search Id from the <a href="#reference/booking/rate-lookup/rate-lookup">Rate Lookup</a> method and provide additional necessary information (same as the <a href="#reference/booking/booking/booking">Booking</a> process)
+2. Use the <a href="/#reference/booking/rate-lookup/create-quote">Create Quote</a> method. In the `search_result_id` parameter, use the search result Id from the <a href="#reference/booking/rate-lookup/rate-lookup">Rate Lookup</a> method and provide additional necessary information (same as the <a href="#reference/booking/booking/booking">Booking</a> process)
 
 
 
@@ -2082,7 +2082,7 @@ Provides the following abilities:
 
 1. Call the <a href="/#reference/booking/rate-lookup/rate-lookup">Rate Lookup</a> method to get the pricing for your trip requirements. Choose the optimal pricing and hold the `Id` of this rate from the `results` array. To get a breakdown of the chosen rate, call the <a href="/#reference/booking/rate-lookup/get-rate-details">Get Rate Details</a> method.
 
-2. Use the <a href="/#reference/booking/rate-lookup/create-quote">Create Quote</a> method. In the `search_id` parameter, use the search Id from the <a href="#reference/booking/rate-lookup/rate-lookup">Rate Lookup</a> method and provide additional necessary information (same as the <a href="#reference/booking/booking/booking">Booking</a> process)
+2. Use the <a href="/#reference/booking/rate-lookup/create-quote">Create Quote</a> method. In the `search_result_id` parameter, use the search result Id from the <a href="#reference/booking/rate-lookup/rate-lookup">Rate Lookup</a> method and provide additional necessary information (same as the <a href="#reference/booking/booking/booking">Booking</a> process)
 
 
 The table below describes the parameters for the Booking process methods:
@@ -2141,7 +2141,7 @@ The table below describes the parameters for the Booking process methods:
 
 | Name |Type |Description |
 |-----------------------------------|-----------|---------------------------------------------------|
-| search_id | integer | Id of search result |
+| search_result_id | integer | Id of search result |
 | service_type_id | integer | Id of Service Type |
 | rental_agreement_id | integer | Id of Rental agreement |
 | results | array | Array of charge results |
@@ -2186,7 +2186,6 @@ The table below describes the parameters for the Booking process methods:
 | Name | Type |Required | Description |
 |-----------------------------------------------|---------|---------|-------------------------------------------------------------------|
 | search_result_id | integer | Yes | Id of choosed price from Rate Lookup response |
-| search_id (For Quote) | integer | Yes | Returns from Rate Lookup response |
 | passengers | array | Yes | List of passengers (Minimum 1 passenger) |
 | passengers[].account_id | integer | No | Account Id of passenger |
 | passengers[].account_number | string | Yes | Account Number of passenger |
@@ -2408,7 +2407,7 @@ Allows you to see pricing for your trip requirements by returning a collection o
 
 
 ### Get Rate Details [GET /companies/{company_alias}/rate_lookup/results/{id}]
-Returns a detailed (breakdown) list of charges by `search_id` from the previous method.
+Returns a detailed (breakdown) list of charges by `search_result_id` from the previous method.
 + Parameters
     + id: `1` (required, int)
     + company_alias: (required, string)
@@ -2440,7 +2439,7 @@ Returns a detailed (breakdown) list of charges by `search_id` from the previous 
 
 + Request
 
-    + `search_id` (int) Range: inclusive between 1 and 9.22337203685478E+18.
+    + `search_result_id` (int) Range: inclusive between 1 and 9.22337203685478E+18.
     + `vehicle_types` (array)
     + `passengers` (array)
     + `passengers[].account_id` (int) Range: inclusive between 1 and 2147483647.
@@ -2491,7 +2490,7 @@ Returns a detailed (breakdown) list of charges by `search_id` from the previous 
 
     + Body
 
-            { "search_id": 111, "vehicle_types": [ 1, 2 ], "passengers": [ { "account_id": 1, "account_number": "12345", "first_name": "Alex", "last_name": "Jonah", "company": "Limo Anywhere", "phone": "+1-234-1111111", "email": "test_1@test.com" } ], "misc_info": { "customer_notes": "Some Notes", "referral_source": "123", "group_name": "Custom Group", "occasion": "IT Conference", "reference_number": "12345", "is_greeting_sign_required": true }, "pickup_flight_info": { "airline_name": "Atlantic Airlines", "airline_code": "AA", "flight_number": "21Y91S" }, "dropoff_flight_info": { "airline_name": "Atlantic Airlines", "airline_code": "AA", "flight_number": "18U23D" }, "credit_card_info": { "card_number": "5361656386674007", "card_holder_name": "Wesley Devis", "billing_address": { "name": "Pick Up Address", "phone": "+1-234-1111110", "country_code": "US", "state_code": "NY", "postal_code": "11111", "county": "Delaware", "city": "New York", "address_line1": "123 Main Street", "address_line2": "123 Second Street", "latitude": 0.0, "longitude": 0.0 }, "expires_at": "2016-08-03T08:31:19-05:00" }, "payment_type_id": 1, "credit_card_id": 0 }
+            { "search_result_id": 111, "vehicle_types": [ 1, 2 ], "passengers": [ { "account_id": 1, "account_number": "12345", "first_name": "Alex", "last_name": "Jonah", "company": "Limo Anywhere", "phone": "+1-234-1111111", "email": "test_1@test.com" } ], "misc_info": { "customer_notes": "Some Notes", "referral_source": "123", "group_name": "Custom Group", "occasion": "IT Conference", "reference_number": "12345", "is_greeting_sign_required": true }, "pickup_flight_info": { "airline_name": "Atlantic Airlines", "airline_code": "AA", "flight_number": "21Y91S" }, "dropoff_flight_info": { "airline_name": "Atlantic Airlines", "airline_code": "AA", "flight_number": "18U23D" }, "credit_card_info": { "card_number": "5361656386674007", "card_holder_name": "Wesley Devis", "billing_address": { "name": "Pick Up Address", "phone": "+1-234-1111110", "country_code": "US", "state_code": "NY", "postal_code": "11111", "county": "Delaware", "city": "New York", "address_line1": "123 Main Street", "address_line2": "123 Second Street", "latitude": 0.0, "longitude": 0.0 }, "expires_at": "2016-08-03T08:31:19-05:00" }, "payment_type_id": 1, "credit_card_id": 0 }
 
 + Response 200
 
@@ -2678,4 +2677,3 @@ Updates a reservation by reservation Id using specified booking information rate
     + Body
 
             { "search_result_id": 111, "passengers": [ { "account_id": 1, "account_number": "12345", "first_name": "Alex", "last_name": "Jonah", "company": "Limo Anywhere", "phone": "+1-234-1111111", "email": "test_1@test.com" } ], "applied_optional_rates": [ 1, 2 ], "misc_info": { "customer_notes": "Some Notes", "referral_source": "123", "group_name": "Custom Group", "occasion": "IT Conference", "reference_number": "12345", "is_greeting_sign_required": true }, "pickup_flight_info": { "airline_name": "Atlantic Airlines", "airline_code": "AA", "flight_number": "21Y91S" }, "dropoff_flight_info": { "airline_name": "Atlantic Airlines", "airline_code": "AA", "flight_number": "18U23D" }, "return_trip_info": { "search_result_id": 112, "passengers": [ { "account_id": 1, "account_number": "12345", "first_name": "Alex", "last_name": "Jonah", "company": "Limo Anywhere", "phone": "+1-234-1111111", "email": "test_1@test.com" } ], "applied_optional_rates": [ 1, 2 ], "pickup_flight_info": { "airline_name": "Atlantic Airlines", "airline_code": "AA", "flight_number": "21Y91S" }, "dropoff_flight_info": { "airline_name": "Atlantic Airlines", "airline_code": "AA", "flight_number": "18U23D" } }, "credit_card_info": { "card_number": "5361656386674007", "card_holder_name": "Wesley Devis", "billing_address": { "name": "Pick Up Address", "phone": "+1-234-1111110", "country_code": "US", "state_code": "NY", "postal_code": "11111", "county": "Delaware", "city": "New York", "address_line1": "123 Main Street", "address_line2": "123 Second Street", "latitude": 0.0, "longitude": 0.0 }, "expires_at": "2016-08-03T08:31:19-05:00" }, "payment_type_id": 1, "credit_card_id": 0 }
-
