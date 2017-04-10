@@ -296,7 +296,7 @@ Returns a paged collection of Airports.
 ### Get By Company Alias[GET /companies/{company_alias}]
 Returns company information.
 + Parameters
-    + company_alias: `testores4` (required, string)
+    + company_alias: `limotest1` (required, string)
 
 + Request
 
@@ -356,7 +356,8 @@ Returns a paged collection of FBOs.
     + search_for: (optional, string)
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
-    + company_alias: (required, string)
+    + company_alias: limotest1 (required, string)
+    
 
 + Request
 
@@ -389,7 +390,7 @@ Returns a paged collection of Occasions.
 + Parameters
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
-    + company_alias: (required, string)
+    + company_alias: limotest1 (required, string)
 
 + Request
 
@@ -417,7 +418,7 @@ Returns a paged collection of Payment Types.
 + Parameters
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
-    + company_alias: (required, string)
+    + company_alias: limotest1 (required, string)
 
 + Request
 
@@ -448,7 +449,7 @@ Returns a paged collection of POIs.
     + search_for: (optional, string)
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
-    + company_alias: (required, string)
+    + company_alias: limotest1 (required, string)
 
 + Request
 
@@ -478,7 +479,7 @@ Returns a paged collection of POI Types.
     + search_for: (optional, string)
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
-    + company_alias: (required, string)
+    + company_alias: limotest1 (required, string)
 
 + Request
 
@@ -504,7 +505,7 @@ This is generally different than a rental agreement and is usually required by a
 ### Get Privacy Policy [GET /companies/{company_alias}/resources/ores/privacy_policy]
 
 + Parameters
-    + company_alias: (required, string)
+    + company_alias: limotest1 (required, string)
 
 + Request
 
@@ -532,7 +533,7 @@ Returns a collection of Referral Sources.
 + Parameters
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
-    + company_alias: (required, string)
+    + company_alias: limotest1 (required, string)
 
 + Request
 
@@ -558,7 +559,7 @@ Returns a collection of Referral Sources.
 
 + Parameters
     + id: `1` (required, int)
-    + company_alias: (required, string)
+    + company_alias: limotest1 (required, string)
 
 + Request
 
@@ -586,7 +587,7 @@ Returns a paged collection of Seaports.
     + search_for: (optional, string)
     + page_index: 1 (optional, int)
     + page_size: 20 (optional, int)
-    + company_alias: (required, string)
+    + company_alias: limotest1 (required, string)
 
 + Request
 
@@ -605,14 +606,57 @@ Returns a paged collection of Seaports.
 
             { "total_count": 1, "items": [ { "id": 1, "name": "sample string 2", "code": "sample string 3", "latitude": 4.1, "longitude": 5.1 }, { "id": 1, "name": "sample string 2", "code": "sample string 3", "latitude": 4.1, "longitude": 5.1 } ] }
 
-
-## Service Types [/ores-service-types]
+## Service Types [/service-type]
 Service Types are descriptions of the ride service being booked. Every Service Type has at least one pricing model associated with it to automate price calculation. 
 
 For example, a Service Type of "As Directed" with a pricing model of "Hourly and Distance" or a Service Type of "Airport Arrival" with a pricing type of "Fixed."
 
+### Read [GET /companies/{company_alias}/resources/service_types/{id}] 
+Returns Service Type by Id. 
++ Parameters 
+    + id: `1` (required, int)
+    + company_alias: (required, string)
 
++ Request
 
+    + Headers
+
+            Content-Type: application/json
+            Authorization: bearer {access_token}
+            
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json
+
+    + Body
+            { "id": 1, "name": "sample string 2", "rental_agreement_id": 1, "pricing_type": [ "per_hour", "per_passenger", "distance", "fixed", "fixed_or_distance" ], "pickup_template": [ "account_stored_address", "airport", "fbo", "stored_poi", "global_poi" ,"seaport", "google_address" ],"dropoff_template": [ "account_stored_address", "airport", "fbo", "stored_poi", "global_poi" ,"seaport", "google_address" ],"stop_template": [ "account_stored_address", "airport", "fbo", "stored_poi", "global_poi" ,"seaport", "google_address" ] }
+
+### Get Collection [GET /companies/{company_alias}/resources/service_types?page_index={page_index}&page_size={page_size}] 
+Returns collection of Service Types. 
+
++ Parameters 
+    + page_index: 1 (optional, int)
+    + page_size: 20 (optional, int)
+    + company_alias: (required, string)
+    
++ Request
+
+    + Headers
+
+            Content-Type: application/json
+            Authorization: bearer {access_token}
+
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json
+
+    + Body
+              { "total_count": 1, "items": [ { "id": 1, "name": "sample string 2" }, { "id": 1, "name": "sample string 2" } ] }
+    
 ## System Preferences [/system-preferences]
 
 System Preferences specify operator requirements and allowed actions. For example, accepted payment methods or an allowed time range for booking modifications.
@@ -623,7 +667,7 @@ It is recommended additional validation be done on the client side to avoid rece
 Returns Company System preferences.
 
 + Parameters
-    + company_alias: (required, string)
+    + company_alias: limotest1 (required, string)
 
 + Request
 
@@ -651,7 +695,7 @@ UI Preferences specify formats for resources to be displayed to the end user, su
 Returns operator's UI preferences.
 
 + Parameters
-    + company_alias: (required, string)
+    + company_alias: limotest1 (required, string)
 
 + Request
 
@@ -2271,7 +2315,7 @@ The table below describes several reason phrases that can occurs during the Book
 ### Rate Lookup [POST /companies/{company_alias}/rate_lookup]
 Allows you to see pricing for your trip requirements by returning a collection of charges.
 + Parameters
-    + company_alias: (required, string)
+    + company_alias: limotest1 (required, string)
 
 + Request
 
@@ -2393,7 +2437,7 @@ Allows you to see pricing for your trip requirements by returning a collection o
 
     + Body
 
-            { "billing_contact_id": 111, "passenger_id": 222, "service_type_id": 10, "passenger_count": 3, "luggage_count": 5, "infant_child_seat_count": 0, "booster_child_seat_count": 1, "toddler_child_seat_count": 2, "is_handicap_access_required": true, "vehicle_types": [ 11, 12, 13 ], "promotion_code": "Promo", "scheduled_pickup_at": "2015-12-03T16:31:19-06:00", "duration": 150, "distance": 33.33, "pickup": { "type": "address", "scheduled_arriving_at": "02:30:00", "instructions": "Some instructions", "address": { "name": "Pick Up Address", "phone": "+1-234-1111110", "country_code": "US", "state_code": "NY", "postal_code": "11111", "county": "Delaware", "city": "New York", "address_line1": "123 Main Street", "address_line2": "123 Second Street", "latitude": 0.0, "longitude": 0.0 }, "flight": { "airport_code": "AAO", "airport_terminal": "Terminal B", "airline_name": "Air France", "airline_code": "AF", "flight_number": "7813UD", "tail_number": "2100925", "departing_to_or_arriving_from": "Paris", "departing_or_arriving_at": "02:15:00", "airport_pickup_option": "curbside" }, "cruise": { "seaport_code": "NYC", "cruise_ship_name": "New York", "cruiseline_name": "New York Cruises", "departing_to_or_arriving_from": "New York", "departing_or_arriving_at": "02:45:00" } }, "stops": [ { "type": "address", "scheduled_arriving_at": "02:30:00", "instructions": "Some instructions", "address": { "name": "Stop Address", "phone": "+1-234-3333330", "country_code": "US", "state_code": "NY", "postal_code": "33333", "county": "Medion", "city": "New York", "address_line1": "345 Main Street", "address_line2": "345 Second Street", "latitude": 0.0, "longitude": 0.0 }, "flight": { "airport_code": "AAO", "airport_terminal": "Terminal B", "airline_name": "Air France", "airline_code": "AF", "flight_number": "7813UD", "tail_number": "2100925", "departing_to_or_arriving_from": "Paris", "departing_or_arriving_at": "02:15:00", "airport_pickup_option": "curbside" }, "cruise": { "seaport_code": "NYC", "cruise_ship_name": "New York", "cruiseline_name": "New York Cruises", "departing_to_or_arriving_from": "New York", "departing_or_arriving_at": "02:45:00" } } ], "dropoff": { "type": "address", "scheduled_arriving_at": "02:30:00", "instructions": "Some instructions", "address": { "name": "Drop Off Address", "phone": "+1-234-2222220", "country_code": "US", "state_code": "NY", "postal_code": "22222", "county": "Otsego", "city": "New York", "address_line1": "234 Main Street", "address_line2": "234 Second Street", "latitude": 0.0, "longitude": 0.0 }, "flight": { "airport_code": "AAO", "airport_terminal": "Terminal B", "airline_name": "Air France", "airline_code": "AF", "flight_number": "7813UD", "tail_number": "2100925", "departing_to_or_arriving_from": "Paris", "departing_or_arriving_at": "02:15:00", "airport_pickup_option": "curbside" }, "cruise": { "seaport_code": "NYC", "cruise_ship_name": "New York", "cruiseline_name": "New York Cruises", "departing_to_or_arriving_from": "New York", "departing_or_arriving_at": "02:45:00" } } }
+            { "billing_contact_id": 111, "passenger_id": 222, "service_type_id": 13, "passenger_count": 3, "luggage_count": 5, "infant_child_seat_count": 0, "booster_child_seat_count": 1, "toddler_child_seat_count": 2, "is_handicap_access_required": true, "vehicle_types": [ 11, 12, 13 ], "promotion_code": "Promo", "scheduled_pickup_at": "2016-12-03T16:31:19", "duration": 3600, "distance": 33.33, "pickup": { "type": "address", "scheduled_arriving_at": "02:30:00", "instructions": "Some instructions", "address": { "name": "Pick Up Address", "phone": "+12155555555", "country_code": "US", "state_code": "NY", "postal_code": "11111", "county": "Delaware", "city": "New York", "address_line1": "123 Main Street", "address_line2": "123 Second Street", "latitude": 0.0, "longitude": 0.0 }, "flight": { "airport_code": "AAO", "airport_terminal": "Terminal B", "airline_name": "Air France", "airline_code": "AF", "flight_number": "1001", "tail_number": "2100925", "departing_to_or_arriving_from": "Paris", "departing_or_arriving_at": "02:15:00", "airport_pickup_option": "curbside" }, "cruise": { "seaport_code": "NYC", "cruise_ship_name": "New York", "cruiseline_name": "New York Cruises", "departing_to_or_arriving_from": "New York", "departing_or_arriving_at": "02:45:00" } }, "stops": [ { "type": "address", "scheduled_arriving_at": "02:30:00", "instructions": "Some instructions", "address": { "name": "Stop Address", "phone": "+18173333333", "country_code": "US", "state_code": "NY", "postal_code": "33333", "county": "Medion", "city": "New York", "address_line1": "345 Main Street", "address_line2": "345 Second Street", "latitude": 0.0, "longitude": 0.0 }, "flight": { "airport_code": "AAO", "airport_terminal": "Terminal B", "airline_name": "Air France", "airline_code": "AF", "flight_number": "300", "tail_number": "2100925", "departing_to_or_arriving_from": "Paris", "departing_or_arriving_at": "02:15:00", "airport_pickup_option": "curbside" }, "cruise": { "seaport_code": "NYC", "cruise_ship_name": "New York", "cruiseline_name": "New York Cruises", "departing_to_or_arriving_from": "New York", "departing_or_arriving_at": "02:45:00" } } ], "dropoff": { "type": "address", "scheduled_arriving_at": "02:30:00", "instructions": "Some instructions", "address": { "name": "Drop Off Address", "phone": "+14692222222", "country_code": "US", "state_code": "NY", "postal_code": "22222", "county": "Otsego", "city": "New York", "address_line1": "234 Main Street", "address_line2": "234 Second Street", "latitude": 0.0, "longitude": 0.0 }, "flight": { "airport_code": "AAO", "airport_terminal": "Terminal B", "airline_name": "Air France", "airline_code": "AF", "flight_number": "733", "tail_number": "2100925", "departing_to_or_arriving_from": "Paris", "departing_or_arriving_at": "02:15:00", "airport_pickup_option": "curbside" }, "cruise": { "seaport_code": "NYC", "cruise_ship_name": "New York", "cruiseline_name": "New York Cruises", "departing_to_or_arriving_from": "New York", "departing_or_arriving_at": "02:45:00" } } }
 
 + Response 200
 
@@ -2410,7 +2454,7 @@ Allows you to see pricing for your trip requirements by returning a collection o
 Returns a detailed (breakdown) list of charges by `search_result_id` from the previous method.
 + Parameters
     + id: `1` (required, int)
-    + company_alias: (required, string)
+    + company_alias: limotest1 (required, string)
 
 + Request
 
@@ -2435,7 +2479,7 @@ Returns a detailed (breakdown) list of charges by `search_result_id` from the pr
 ### Create Quote [POST /companies/{company_alias}/quotes]
 
 + Parameters
-    + company_alias: (required, string)
+    + company_alias: limotest1 (required, string)
 
 + Request
 
@@ -2509,7 +2553,7 @@ Returns a detailed (breakdown) list of charges by `search_result_id` from the pr
 Creates a reservation using the supplied booking information and specified rate lookup information from the `search_result_id` parameter returned previously.
 
 + Parameters
-    + company_alias: (required, string)
+    + company_alias: limotest1 (required, string)
 
 + Request
 
@@ -2602,7 +2646,7 @@ Updates a reservation by reservation Id using specified booking information rate
 
 + Parameters
     + id: `1` (required, int)
-    + company_alias: (required, string)
+    + company_alias: limotest1 (required, string)
 
 + Request
 
