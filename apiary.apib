@@ -2139,6 +2139,7 @@ The table below describes the parameters for the Booking process methods:
 | billing_contact_id | integer |No | Id of Billing Contact |
 | passenger_id | integer |No | Id of Passenger |
 | service_type_id | integer |No | Id of Service Type |
+| result_type | string |No | Rate Calculation Type. Possible values: mixed, quote. Default is mixed.|
 | passenger_count | integer |Yes | Count of Passengers |
 | luggage_count | integer |No | Count of Lagguage (Default value: 0) |
 | infant_child_seat_count | integer |No | Count of "Infant" child seats (Default value: 0) |
@@ -2323,6 +2324,11 @@ Allows you to see pricing for your trip requirements by returning a collection o
     + `passenger_id` (int) Range: inclusive between 1 and 2147483647.
     + `service_type_id` (int) Range: inclusive between 1 and 2147483647.
     + `passenger_count` (int) Range: inclusive between 1 and 2147483647.
+    + `result_type` (enum[string]) Rate Calculation Type.
+        + Members
+        
+            + mixed - Vehicles with calculated price and vehicles without price. Used by default.
+            + quote - Vehicles without calculated price.
     + `luggage_count` (int) Range: inclusive between 0 and 2147483647.
     + `infant_child_seat_count` (int) Range: inclusive between 0 and 2147483647.
     + `booster_child_seat_count` (int) Range: inclusive between 0 and 2147483647.
@@ -2661,7 +2667,6 @@ Updates a reservation by reservation Id using specified booking information rate
     + `passengers[].email` (string) Email address. String length: inclusive between 0 and 255.
     + `applied_optional_rates` (array)
     + `misc_info` (object)
-    + `misc_info.customer_notes` (string) String length: inclusive between 0 and 500.
     + `misc_info.referral_source` (string) String length: inclusive between 0 and 50.
     + `misc_info.group_name` (string) String length: inclusive between 0 and 50.
     + `misc_info.occasion` (string) String length: inclusive between 0 and 50.
