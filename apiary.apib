@@ -655,14 +655,14 @@ Returns collection of Service Types.
     + Body
               { "total_count": 1, "items": [ { "id": 1, "name": "sample string 2" }, { "id": 1, "name": "sample string 2" } ] }
     
-## System Preferences [/system-preferences]
+## System Settings [/system-settings]
 
-System Preferences specify operator requirements and allowed actions. For example, accepted payment methods or an allowed time range for booking modifications.
+System Settings specify operator requirements and allowed actions. For example, accepted payment methods or an allowed time range for booking modifications.
 
 It is recommended additional validation be done on the client side to avoid receiving a technical error message when an action is attempted which doesn't meet the requirements. For example, attempting to pay with credit card when it is not accepted.
 
-### Get [GET /companies/{company_alias}/preferences/system]
-Returns Company System preferences.
+### Get [GET /companies/{company_alias}/settings/system]
+Returns Company System settings.
 
 + Parameters
     + company_alias: limotest1 (required, string)
@@ -685,12 +685,12 @@ Returns Company System preferences.
             { "service_type_mapping": { "default_hourly_service_type_id": 1, "default_airport_departure_service_type_id": 1, "default_airport_arrival_service_type_id": 1, "default_point_to_point_service_type_id": 1 }, "ores": { "is_ores_enabled": true, "is_credit_card_required": true, "is_billing_address_required": true, "max_authentication_attempt_count": 1, "default_payment_gateway_id": 1, "payment_transaction_type": "authorization_and_capture", "default_rental_agreement_id": 1, "allowed_payment_types": [ 1, 2 ], "is_rate_calculation_enabled": true, "is_reservation_auto_approve_enabled": true, "is_create_account_allowed": true, "is_create_quote_allowed": true, "is_create_reservation_allowed": true, "create_reservation_allowed_up_to": 1, "is_cancel_and_modify_reservation_allowed": true, "cancel_and_modify_reservation_allowed_up_to": 1, "is_reservation_cut_off_enabled": true, "reservation_cut_off_for_customer_begins_at": "00:00:00.1234567", "reservation_cut_off_for_customer_ends_at": "00:00:00.1234567" } }
 
 
-## UI Preferences [/ui-preferences]
+## UI Settings [/ui-settings]
 
-UI Preferences specify formats for resources to be displayed to the end user, such as dates and times. Developers should use these preferences as a guide when building a customer facing application.
+UI Settings specify formats for resources to be displayed to the end user, such as dates and times. Developers should use these settings as a guide when building a customer facing application.
 
-### Get [GET /companies/{company_alias}/preferences/ui]
-Returns operator's UI preferences.
+### Get [GET /companies/{company_alias}/settings/ui]
+Returns operator's UI settings.
 
 + Parameters
     + company_alias: limotest1 (required, string)
