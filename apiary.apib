@@ -710,8 +710,90 @@ Returns operator's UI settings.
 
     + Body
 
-            { "ores": { "default_date_format": "sample string 1", "default_time_format": "sample string 2", "default_date_time_format": "sample string 1 sample string 2", "is_quote_creation_enabled_if_rates_not_found": true, "location_type_display_order": [ "sample string 1", "sample string 2" ], "rate_lookup_display_type": "row", "message_on_missing_rate_result_for_return_trip": "sample string 4", "message_on_reservation_auto_approve_enabled": "sample string 5", "message_on_reservation_auto_approve_disabled": "sample string 6", "message_on_credit_card_required": "sample string 7", "message_on_reservation_cut_off_enabled": "sample string 8", "message_on_ores_disabled": "sample string 9", "is_rate_grouping_allowed": true, "is_airport_instructions_visible": true, "is_flight_details_visible_on_drop_off": true, "is_child_seats_visible": true, "is_promotion_code_visible": true, "design": { "primary_button_style": { "background_color": { "from_color": "sample string 1", "to_color": "sample string 2" }, "border_color": "sample string 1", "text_color": "sample string 2" }, "accent_button_style": { "background_color": { "from_color": "sample string 1", "to_color": "sample string 2" }, "border_color": "sample string 1", "text_color": "sample string 2" }, "warning_button_style": { "background_color": { "from_color": "sample string 1", "to_color": "sample string 2" }, "border_color": "sample string 1", "text_color": "sample string 2" }, "default_input_style": { "button_color": { "from_color": "sample string 1", "to_color": "sample string 2" }, "border_color": "sample string 1", "placeholder_text_color": "sample string 2" }, "top_menu_background_color": "sample string 1", "top_menu_border_color": "sample string 2", "step_wizard_bar_background_color": "sample string 3", "dash_line_color": "sample string 4", "dashboard_menu_text_color": "sample string 5", "text_color": "sample string 6", "background_color": "sample string 7" } }, "ores_mobile": { "logotype_file_name": "sample string 1", "logotype_image": "http://webapihelppage2.com", "background_color": "sample string 3", "theme_color": "sample string 4", "attention_color": "sample string 5", "text_color": "sample string 6", "background_images_file_names": [ "sample string 1", "sample string 2" ], "background_images": [ "http://webapihelppage1.com", "http://webapihelppage2.com" ] } }
+           {
 
+    "ores":{
+        "default_date_format":"MM/dd/yyyy",
+        "default_time_format":"hh:mm tt",
+        "default_date_time_format":"MM/dd/yyyy hh:mm tt",
+        "is_quote_creation_enabled_if_rates_not_found":true,
+        "is_booking_creation_enabled":true,
+        "location_type_display_order":[
+            "airport",
+            "stored_address",
+            "address",
+            "poi",
+            "seaport",
+            "fbo"
+        ],
+        "rate_lookup_display_type":"row",
+        "message_on_missing_rate_result_for_return_trip":"sample string 1",
+        "message_on_reservation_auto_accept_enabled":"sample string 2",
+        "message_on_reservation_auto_accept_disabled":"sample string 3",
+        "message_on_credit_card_required":"sample string 4",
+        "message_on_reservation_cut_off_enabled":"sample string 5",
+        "message_on_ores_disabled":"sample string 6",
+        "is_rate_grouping_allowed":true,
+        "is_dedicated_quote_link_enabled":true,
+        "is_airport_instructions_visible":true,
+        "is_flight_details_on_dropoff_location_visible":true,
+        "is_child_seats_visible":true,
+        "is_promotion_code_visible":true,
+        "is_airport_pickup_options_visible":true,
+        "design":{
+            "primary_button_style":{
+                "background_color":{
+                    "from_color":"#ffffff",
+                    "to_color":"#ffffff"
+                },
+                "border_color":"#ffffff",
+                "text_color":"#000000"
+            },
+            "accent_button_style":{
+                "background_color":{
+                    "from_color":"#ffffff",
+                    "to_color":"#ffffff"
+                },
+                "border_color":"#ffffff",
+                "text_color":"#000000"
+            },
+            "warning_button_style":{
+                "background_color":{
+                    "from_color":"#ffffff",
+                    "to_color":"#ffffff"
+                },
+                "border_color":"#ffffff",
+                "text_color":"#000000"
+            },
+            "default_input_style":{
+                "button_color":{
+                    "from_color":"#ffffff",
+                    "to_color":"#ffffff"
+                },
+                "border_color":"#ffffff",
+                "placeholder_text_color":"#000000"
+            },
+            "top_menu_background_color":"#ffffff",
+            "top_menu_border_color":"#ffffff",
+            "step_wizard_bar_background_color":"#ffffff",
+            "dash_line_color":"#ffffff",
+            "dashboard_menu_text_color":"#000000",
+            "text_color":"#000000",
+            "background_color":"#ffffff"
+        }
+    },
+    "ores_mobile":{
+        "logotype":"http://webapihelppage2.com",
+        "background_color":"#ffffff",
+        "theme_color":"#ffffff",
+        "attention_color":"#ffffff",
+        "text_color":"#000000",
+        "background_images":[
+            "http://webapihelppage1.com",
+            "http://webapihelppage2.com"
+        ]
+    }
+}
 
 ## Group Customer Resources
 Resources which are only available to a logged-in customer.
