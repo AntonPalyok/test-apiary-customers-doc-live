@@ -2779,22 +2779,6 @@ Updates a reservation by reservation Id using specified booking information rate
     + `dropoff_flight_info.airline_name` (string) String length: inclusive between 0 and 250.
     + `dropoff_flight_info.airline_code` (string) Max length: 2. Min length: 2.
     + `dropoff_flight_info.flight_number` (string) Max length: 4. Min length: 1.
-    + `credit_card_info` (object)
-    + `credit_card_info.card_number` (string) Required. String length: inclusive between 0 and 20.
-    + `credit_card_info.card_holder_name` (string) String length: inclusive between 0 and 250.
-    + `credit_card_info.billing_address` (object)
-    + `credit_card_info.billing_address.name` (string) String length: inclusive between 0 and 500.
-    + `credit_card_info.billing_address.phone` (string) Phone number. String length: inclusive between 0 and 50.
-    + `credit_card_info.billing_address.country_code` (string) String length: inclusive between 0 and 5.
-    + `credit_card_info.billing_address.state_code` (string) String length: inclusive between 0 and 5.
-    + `credit_card_info.billing_address.postal_code` (string) String length: inclusive between 0 and 15.
-    + `credit_card_info.billing_address.county` (string) String length: inclusive between 0 and 250.
-    + `credit_card_info.billing_address.city` (string) String length: inclusive between 0 and 250.
-    + `credit_card_info.billing_address.address_line1` (string) String length: inclusive between 0 and 250.
-    + `credit_card_info.billing_address.address_line2` (string) String length: inclusive between 0 and 250.
-    + `credit_card_info.billing_address.latitude` (float) Required.
-    + `credit_card_info.billing_address.longitude` (float) Required.
-    + `expires_at` (object)
     + `payment_type_id` (int) Range: inclusive between 1 and 2147483647.
     + `credit_card_id` (int) Range: inclusive between 1 and 2147483647.
 
@@ -2805,4 +2789,69 @@ Updates a reservation by reservation Id using specified booking information rate
 
     + Body
 
-            { "search_result_id": 111, "passengers": [ { "account_id": 1, "account_number": "12345", "first_name": "Alex", "last_name": "Jonah", "company": "Limo Anywhere", "phone": "+1-234-1111111", "email": "test_1@test.com" } ], "applied_optional_rates": [ 1, 2 ], "misc_info": { "customer_notes": "Some Notes", "referral_source": "123", "group_name": "Custom Group", "occasion": "IT Conference", "reference_number": "12345", "is_greeting_sign_required": true }, "pickup_flight_info": { "airline_name": "Atlantic Airlines", "airline_code": "AA", "flight_number": "21Y91S" }, "dropoff_flight_info": { "airline_name": "Atlantic Airlines", "airline_code": "AA", "flight_number": "18U23D" }, "return_trip_info": { "search_result_id": 112, "passengers": [ { "account_id": 1, "account_number": "12345", "first_name": "Alex", "last_name": "Jonah", "company": "Limo Anywhere", "phone": "+1-234-1111111", "email": "test_1@test.com" } ], "applied_optional_rates": [ 1, 2 ], "pickup_flight_info": { "airline_name": "Atlantic Airlines", "airline_code": "AA", "flight_number": "21Y91S" }, "dropoff_flight_info": { "airline_name": "Atlantic Airlines", "airline_code": "AA", "flight_number": "18U23D" } }, "credit_card_info": { "card_number": "5361656386674007", "card_holder_name": "Wesley Devis", "billing_address": { "name": "Pick Up Address", "phone": "+1-234-1111110", "country_code": "US", "state_code": "NY", "postal_code": "11111", "county": "Delaware", "city": "New York", "address_line1": "123 Main Street", "address_line2": "123 Second Street", "latitude": 0.0, "longitude": 0.0 }, "expires_at": "2016-08-03T08:31:19-05:00" }, "payment_type_id": 1, "credit_card_id": 0 }
+ {  
+   "search_result_id":111,
+   "passengers":[  
+      {  
+         "account_id":1,
+         "account_number":"12345",
+         "first_name":"Alex",
+         "last_name":"Jonah",
+         "company":"Limo Anywhere",
+         "phone":"+1-234-1111111",
+         "email":"test_1@test.com"
+      }
+   ],
+   "applied_optional_rates":[  
+      1,
+      2
+   ],
+   "misc_info":{  
+      "customer_notes":"Some Notes",
+      "referral_source":"123",
+      "group_name":"Custom Group",
+      "occasion":"IT Conference",
+      "reference_number":"12345",
+      "is_greeting_sign_required":true
+   },
+   "pickup_flight_info":{  
+      "airline_name":"Atlantic Airlines",
+      "airline_code":"AA",
+      "flight_number":"21Y91S"
+   },
+   "dropoff_flight_info":{  
+      "airline_name":"Atlantic Airlines",
+      "airline_code":"AA",
+      "flight_number":"18U23D"
+   },
+   "return_trip_info":{  
+      "search_result_id":112,
+      "passengers":[  
+         {  
+            "account_id":1,
+            "account_number":"12345",
+            "first_name":"Alex",
+            "last_name":"Jonah",
+            "company":"Limo Anywhere",
+            "phone":"+1-234-1111111",
+            "email":"test_1@test.com"
+         }
+      ],
+      "applied_optional_rates":[  
+         1,
+         2
+      ],
+      "pickup_flight_info":{  
+         "airline_name":"Atlantic Airlines",
+         "airline_code":"AA",
+         "flight_number":"21Y91S"
+      },
+      "dropoff_flight_info":{  
+         "airline_name":"Atlantic Airlines",
+         "airline_code":"AA",
+         "flight_number":"18U23D"
+      }
+   },
+   "payment_type_id":1,
+   "credit_card_id":1
+}
