@@ -21,7 +21,7 @@ To use the Limo Anywhere Customer API  in your application, you must have an API
 
 <b>Before you can generate an access token, you must agree to the API Terms of Service and receive a Client ID and Client Secret from Limo Anywhere.</b> 
 
-If you have not done this and would like to use the API, please email api@limoanywhere.com
+If you have not done this and would like to use the API, please email [api@limoanywhere.com](mailto:api@limoanywhere.com)
 
 ## HTTP Status Codes
 
@@ -45,7 +45,7 @@ Follow the below steps to complete some of the most popular actions.
 
 <b> Get Authorization to use the Customer API before doing anything else.</b>
 
-1. Contact api@limoanywhere.com and receive your Client Id & Client Secret.
+1. Contact [api@limoanywhere.com](mailto:api@limoanywhere.com) and receive your Client Id & Client Secret.
 2. Use Client Id & Client Secret to generate an access token as described <a href="/#reference/authentication">here.</a>
 
 Once you have completed the above, choose a sub-section to follow:
@@ -62,25 +62,17 @@ Once you have completed the above, choose a sub-section to follow:
 
 
 
-
-
-
-
-
 ## Group Authentication
 The API uses the <a href="https://tools.ietf.org/html/rfc6749"> OAuth 2.0 </a> protocol for simple, but effective authentication and authorization.
 All API endpoints require an OAuth access token, thus we have exposed a service that will provide the user with an OAuth 2 Access token.
 This token should be provided in the header in all requests.
 
-
-
-
 ## GET Access Token [/get]
 
 We support 2 ways of obtaining authorization:
 
-- <b>Client Credentials Grant: </b>Authenticates as a general client. Allows access to general resources that do not need customer account authentication.
-- <b>Resource Owner Credentials Grant: </b>Authenticates as a specific customer account. Allows access to customer account resources and general resources.
+- <b>Client Credentials Grant: </b> Requires only the `client_secret` and does not allow access to anything listed in [Customer Resources](#customer_resources)
+- <b>Resource Owner Credentials Grant: </b> Additionally requires `password` and `username` of a passenger account. Allows access to all resources
 
 ### Basic Steps for getting an 'access_token':
 
@@ -91,7 +83,7 @@ We support 2 ways of obtaining authorization:
 ### Client Credentials Grant [POST /oauth2/token]
 `grant_type` = `client_credentials`
 
-+ Request
++ Request Client Credentials Grant
 
     + `grant_type` (string) Required. String length: inclusive between 0 and 50.f
     + `client_id` (string) Required. String length: inclusive between 6 and 50.
@@ -106,7 +98,7 @@ We support 2 ways of obtaining authorization:
             {
                 "grant_type": "client_credentials",
                 "client_id": "la_customer_test",
-                "client_secret": "lcfLYzj7RaUgmRp8sVngt2fpD5GaBJ19Ptt2MrNSlF57GI5kAR",
+                "client_secret": "lcfLYzj7RaUgmRp8sVngt2fpD5GaBJ19Ptt2MrNSlF57GI5kAR"
             }
 
 + Response 200 (application/json)
@@ -116,7 +108,7 @@ We support 2 ways of obtaining authorization:
             {
                 "access_token": "YE0W7CSdfVaQFmC8GTQ1",
                 "token_type": "bearer",
-                "expires_in": 3600,
+                "expires_in": 3600
             }
 
 ### Resource Owner Credentials Grant [POST /oauth2/token]
@@ -796,6 +788,7 @@ Returns operator's UI settings.
 }
 
 ## Group Customer Resources
+<a name="customer_resources"></a>
 Resources which are only available to a logged-in customer.
 
 ## Customer Account [/customer_self_account]
