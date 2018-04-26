@@ -881,22 +881,6 @@ Updates all information for the account.
 
             { "prefix": "Mr.", "first_name": "John", "last_name": "Smith", "position": "Software developer", "department": "IT department", "company": "Limo Anywhere", "address": { "name": "Pick Up Address", "phone": "+1-234-1111110", "country_code": "US", "state_code": "NY", "postal_code": "11111", "county": "Delaware", "city": "New York", "address_line1": "123 Main Street", "address_line2": "123 Second Street", "latitude": 55.5555, "longitude": 33.3333 }, "home_phone": "+1-234-1111112", "office_phone": "+1-234-1111111", "cellular_phone1": "+1-234-1111113", "cellular_phone2": "+1-234-1111114", "cellular_phone3": "+1-234-1111115", "fax1": "+1-234-1111116", "fax2": "+1-234-1111117", "emails": [ { "email": "test_1@test.com", "type": [ "confirmation", "automatic_notification", "payment_receipt", "invoice", "other" ] }, { "email": "test_2@test.com", "type": [ "confirmation", "automatic_notification", "payment_receipt", "invoice", "other" ] } ], "default_payment_type_id": 111, "default_credit_card_id": 222 }
 
-### Update Partial [PATCH /customers/self]
-Partial update of information for the account.
-+ Parameters
-
-+ Request
-
-
-    + Headers
-
-            Content-Type: application/json
-            Authorization: bearer {access_token}
-
-    + Body
-
-            An exception has occurred while using the formatter 'JsonTextMediaTypeFormatter' to generate sample for media type 'application/json'. Exception message: An object of type 'PageDTO`1' cannot be used with a type parameter of 'Delta`1'. Parameter name: value
-
 ### Get [GET /customers/self]
 Returns account information.
 
