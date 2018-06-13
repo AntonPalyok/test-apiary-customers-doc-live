@@ -428,67 +428,6 @@ Returns a paged collection of Payment Types.
 
             { "total_count": 1, "items": [ { "id": 1, "name": "sample string 3", "type": "other" }, { "id": 1, "name": "sample string 3", "type": "other" } ] }
 
-
-
-
-## POIs [/pois]
-Operator-defined Points of Interest. Example POIs might be "Sydney Opera House" or "Yankee Stadium."
-### Get Collection [GET /companies/{company_alias}/resources/pois/types?search_for={search_for}&page_index={page_index}&page_size={page_size}]
-Returns a paged collection of POIs.
-
-+ Parameters
-    + search_for: (optional, string)
-    + page_index: 1 (optional, int)
-    + page_size: 20 (optional, int)
-    + company_alias: limotest1 (required, string)
-
-+ Request
-
-    + Headers
-
-            Content-Type: application/json
-            Authorization: bearer {access_token}
-
-+ Response 200
-
-    + Headers
-
-            Content-Type: application/json
-
-    + Body
-
-           {"total_count":2,"items":[{"id":1,"name":"sample string 1","type":{"name":"sample string 2"},"instructions":"sample string 4","address":{"name":"sample string 5","country_code":"sample string 6","state_code":"sample string 7","postal_code": "sample string 8","city":"sample string 9","address_line1":"sample string 10","address_line2":"sample string 11"},"location":{"latitude": 1.1,"longitude": 2.1}},{"id":2,"name":"sample string 12","type":{"name":"sample string 2"},"instructions":"sample string 14","address":{"name":"sample string 15","country_code":"sample string 16","state_code":"sample string 17","postal_code": "sample string 18","city":"sample string 19","address_line1":"sample string 20","address_line2":"sample string 21"},"location":{"latitude": 1.1,"longitude": 2.1}}]}
-
-
-## POI Types [/pois/types]
-POI Types categorize Points of Interest. Examples include "Hotels", "Restaurants", and "Sporting Arenas."
-
-### Get Collection [GET /companies/{company_alias}/resources/pois/types?search_for={search_for}&page_index={page_index}&page_size={page_size}]
-Returns a paged collection of POI Types.
-
-+ Parameters
-    + search_for: (optional, string)
-    + page_index: 1 (optional, int)
-    + page_size: 20 (optional, int)
-    + company_alias: limotest1 (required, string)
-
-+ Request
-
-    + Headers
-
-            Content-Type: application/json
-            Authorization: bearer {access_token}
-
-+ Response 200
-
-    + Headers
-
-            Content-Type: application/json
-
-    + Body
-
-            { "total_count": 1, "items": [ { "id": 1, "name": "sample string 2" }, { "id": 1, "name": "sample string 2" } ] }
-
 ## Privacy Policy [/policy]
 
 This is generally different than a rental agreement and is usually required by a payment processor to be available to a customer prior to creating a booking.
