@@ -1834,18 +1834,11 @@ Cancels a reservation by specified Id.
             Content-Type: application/json
             Authorization: bearer {access_token}
 
-+ Response 200
++ Response 204
 
     + Headers
 
-            Content-Type: application/json
-
-    + Body
-
-            { "transitions": [ { "statuses": [ { "id": 1, "name": "sample string 2", "color": "sample string 3" }, { "id": 1, "name": "sample string 2", "color": "sample string 3" } ] }, { "statuses": [ { "id": 1, "name": "sample string 2", "color": "sample string 3" }, { "id": 1, "name": "sample string 2", "color": "sample string 3" } ] } ] }
-
-
-### Get Permitted Transitions [GET /customers/self/reservations/{id}/transitions]
+            Content-Type: application/json### Get Permitted Transitions [GET /customers/self/reservations/{id}/transitions]
 Returns a collection of available triggers for reservation by specified Id.
 
 + Parameters
