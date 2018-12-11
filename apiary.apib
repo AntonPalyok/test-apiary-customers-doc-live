@@ -257,7 +257,7 @@ Returns a paged collection of Airlines.
 
 
 ## Airports [/airports]
-### Get Collecton [GET /resources/airports?search_for={search_for}&page_index={page_index}&page_size={page_size}]
+### Get Collection [GET /resources/airports?search_for={search_for}&page_index={page_index}&page_size={page_size}]
 Returns a paged collection of Airports.
 
 + Parameters
@@ -2208,9 +2208,9 @@ The table below describes the parameters for the Booking process methods:
 | original_charges[].details.is_vat_tax | boolean | Charge is VAT Tax |
 | original_charges[].value | float | Charge Value |
 | charges (included fields same with original_charges) | array | Charges |
-| optional_charges | object | Optinal Charges |
+| optional_charges | object | Optional Charges |
 | optional_charges[].rate_id | integer | Charge Id |
-| optional_charges[].apply_to_rate_id | integer | Id of rate in which will aplayed optinal charge |
+| optional_charges[].apply_to_rate_id | integer | Id of rate in which will be applied optional charge |
 | optional_charges[].name, | string | Charge name |
 | optional_charges[].total_amount | float | Charge total amount |
 | id | integer | Rate Id |
@@ -2220,7 +2220,7 @@ The table below describes the parameters for the Booking process methods:
 
 | Name | Type |Required | Description |
 |-----------------------------------------------|---------|---------|-------------------------------------------------------------------|
-| search_result_id | integer | Yes | Id of choosed price from Rate Lookup response |
+| search_result_id | integer | Yes | Id of chosen price from Rate Lookup response |
 | passengers | array | Yes | List of passengers (Minimum 1 passenger) |
 | passengers[].account_id | integer | No | Account Id of passenger |
 | passengers[].account_number | string | Yes | Account Number of passenger |
@@ -2236,14 +2236,14 @@ The table below describes the parameters for the Booking process methods:
 | misc_info.group_name | string | No | Group name |
 | misc_info.occasion | string | No | Occasion |
 | misc_info.reference_number | string | No | Referense number |
-| misc_info.is_greeting_sign_required | boolean | No | Is greeting signature required (Dafault value: `false`) |
+| misc_info.is_greeting_sign_required | boolean | No | Is greeting signature required (Default value: `false`) |
 | pickup_flight_info | object | No | Pick Up flight information |
 | pickup_flight_info.airline_name | string | No | Airline Name |
 | pickup_flight_info.airline_code | string | No | Airline Code |
 | pickup_flight_info.flight_number | string | No | Flight Number |
 | dropoff_flight_info | object | No | Drop Off flight information |
 | return_trip_info | integer | No | Return Trip Information |
-| return_trip_info.search_result_id | integer | No | Id of choosed price from Rate Lookup response |
+| return_trip_info.search_result_id | integer | No | Id of chosen price from Rate Lookup response |
 | return_trip_info.passengers | array | No | List of passengers for return trip |
 | credit_card_info | object | No | Information of customer Credit Card |
 | credit_card_info.card_number | string | Yes* | Credit Card Number (Required if 'credit_card_id' is not provided) |
@@ -2269,7 +2269,7 @@ The table below describes the parameters for the Booking process methods:
 
 | Name |Type |Description |
 |-------------------------------|-------|---------------------------------------------------|
-| search_result_id |integer| Id of choosed price from Rate Lookup response |
+| search_result_id |integer| Id of chosen price from Rate Lookup response |
 | passengers |array | List of passengers |
 | passengers[].account_id |integer| Account Id of passenger |
 | passengers[].account_number |string | Account Number of passenger |
@@ -2280,7 +2280,7 @@ In the 'execution' console you can see request/response samples, data types and 
 <b> Errors </b>
 
 Any errors that may occur during the booking process basically use standard HTTP codes which are described in the <a href="#introduction/http-status-codes">Status Codes</a> section of this documentation.
-Pay special attention to the description of the response code 409 (Conflict). The API returns this code in a cases where the request is programatically correct, but it may have:
+Pay special attention to the description of the response code 409 (Conflict). The API returns this code in cases where the request is programatically correct, but it may have:
 - a violation of business logic 
 - non-compliance with the settings
 - booking process restrictions specified in system settings.
@@ -2297,10 +2297,10 @@ The table below describes several reason phrases that can occurs during the Book
 | "PU time Conflict" | Reservation cannot be modified or cancelled because of PU time restricted by settings |
 | "Cut Off Limit Conflict" | Reservation cannot be cancelled or modified during cut off time. |
 | "Creation Limit Conflict" | Reservation cannot be created, because it isn't allowed by company settings. |
-| "Return trip cannot be specified during reservation modification " | Attemt to create return reservation during update existing |
+| "Return trip cannot be specified during reservation modification " | Attempt to create return reservation during updating existing |
 
 
-
+Misprints
 ## Rate Lookup [/Rate Lookup]
 
 ### Rate Lookup [POST /companies/{company_alias}/rate_lookup]
