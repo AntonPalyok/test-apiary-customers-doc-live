@@ -2047,10 +2047,10 @@ Provides operations that allow a user to create and register a customer account.
 ## Group Customer Password
 Provides operations to set and reset the customer's password.
 
-## Set Password [/setting-password]
+## Reset Password [/setting-password]
 
 ### Set [POST /companies/{company_alias}/customers/passwords/init_set]
-Sets the password. Should be used after customer sign up.
+Customer's password cannot be directly updated from your application. A link is generated and sent to the customer's email address. After clicking on the link, the customer can input and save a new password.
 
 + Parameters
     + company_alias: `testores4` (required, string)
@@ -2067,28 +2067,6 @@ Sets the password. Should be used after customer sign up.
     + Body
 
             { "email": "sample string 1" }
-
-## Password Reset Process [/password-reset]
-
-### Reset [POST /companies/{company_alias}/customers/passwords/set]
-Customer's password cannot be directly updated from your application. A link is generated and sent to the customer's email address. After clicking on the link, the customer can input and save a new password. 
-
-+ Parameters
-    + company_alias: `testores4` (required, string)
-
-+ Request
-
-    + `token` (string) Required. String length: inclusive between 10 and 10.
-    + `new_password` (string) Required. Matching regular expression pattern: ^((?=.*\d)(?=.*\w)(?=.*\W).{8,50})$. String length: inclusive between 8 and 50.
-
-    + Headers
-
-            Content-Type: application/json
-            Authorization: bearer {access_token}
-
-    + Body
-
-            { "token": "sample string 1", "new_password": "sample string 2" }
 
 ## Group Booking
 
